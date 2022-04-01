@@ -546,7 +546,7 @@ O projeto é avaliado com base em duas componentes: quantitativa (*A*), e qualit
 | IJ        |  2   |
 | IC        |  1   |
 | D         |  1   |
-| SN        |  2   |
+| CN        |  2   |
 | RN        |  2   |
 | T         |  3   |
 | V         |  2   |

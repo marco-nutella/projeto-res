@@ -83,7 +83,7 @@ Os navios são colocados através da [instrução CN](#colocar-navios-cn).
 Considere a seguinte sequência para a colocação de navios, e a consequência no cenário do jogo (ver detalhe sobre formato na secção sobre [Instruções](#instruções)).
 
         CN Jogador1 P 1 A E
-        CN Jogador1 C 1 I S
+        CN Jogador1 C 2 I S
         CN Jogador1 F 3 B S
         CN Jogador1 F 10 H E
         CN Jogador1 S 3 F S

@@ -443,13 +443,13 @@ A estrutura mínima do projeto deve ser a seguinte:
 
 O ficheiro `src/main.c` disponibilizado inclui código condicional que assegura que o caráter sinalizador de *nova linha* (`\n`) não é convertido para o padrão Windows (`\r\n`).
 
-O repositório de referência está disponível em <https://github.com/IADE-PA/PA-2021-2022-Projeto>
+O repositório de referência está disponível em <https://github.com/IADE-PA/Projeto>
 
 Para efetuar a atualizações:
 
 1. Registar o repositório como `upstream` (só deve acontecer uma vez)
 
-        git remote add upstream https://github.com/IADE-PA/PA-2021-2022-Projeto
+        git remote add upstream https://github.com/IADE-PA/Projeto
 
 2. Atualizar o `upstream` (sempre que existirem atualizações)
 

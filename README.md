@@ -17,6 +17,8 @@
   - [Remover Navios (RN)](#remover-navios-rn)
   - [Disparar Tiro (T)](#disparar-tiro-t)
   - [Visualizar Resultado (V)](#visualizar-resultado-v)
+  - [Gravar (G)](#gravar-g)
+  - [Ler (L)](#ler-l)
 - [Estrutura do projeto](#estrutura-do-projeto)
 - [Testes de *input*/*output*](#testes-de-inputoutput)
   - [Utilização de testes](#utilização-de-testes)
@@ -390,6 +392,42 @@ Saída com insucesso:
 
         Jogo em curso sem combate iniciado.
 
+### Gravar (G)
+
+Grava a lista de jogadores, resultados, e estado do jogo em curso (se existir) em ficheiro.
+
+Entrada:
+
+        G
+
+Saída com sucesso:
+
+        Jogo gravado.
+
+Saída com insucesso:
+
+- Quando ocorre um erro na gravação:
+
+        Ocorreu um erro na gravação.
+
+### Ler (L)
+
+Lê a lista de jogadores, resultados, e estado do jogo em curso (se existir) de ficheiro.
+
+Entrada:
+
+        L
+
+Saída com sucesso:
+
+        Jogo carregado.
+
+Saída com insucesso:
+
+- Quando ocorre um erro na leitura:
+
+        Ocorreu um erro no carregamento.
+
 ## Estrutura do projeto
 
 A estrutura mínima do projeto deve ser a seguinte:
@@ -510,6 +548,10 @@ O projeto é avaliado com base em duas componentes: quantitativa (*A*), e qualit
 | RN        |  2   |
 | T         |  2   |
 | V         |  2   |
+| G         |  2*  |
+| L         |  2*  |
+
+A nota do projeto tem um máximo de 20 valores, embora a soma absoluta dos pesos some 24. As instruções L e G estão assinaladas como opcionais (*).
 
 A avaliação qualitativa irá considerar que existem várias formas de resolver o problema descrito, mas exige-se a utilização dos instrumentos e métodos apresentados na unidade curricular, nomeadamente:
 

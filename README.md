@@ -17,8 +17,6 @@
   - [Remover Navios (RN)](#remover-navios-rn)
   - [Disparar Tiro (T)](#disparar-tiro-t)
   - [Visualizar Resultado (V)](#visualizar-resultado-v)
-  - [Gravar (G)](#gravar-g)
-  - [Ler (L)](#ler-l)
 - [Estrutura do projeto](#estrutura-do-projeto)
 - [Testes de *input*/*output*](#testes-de-inputoutput)
   - [Utilização de testes](#utilização-de-testes)
@@ -33,8 +31,8 @@
 | Data                      | Evento                         |
 | ------------------------- | ------------------------------ |
 | 28/03/2022                | Disponibilização do enunciado. |
-| 22/05/2022 23:59:59 UTC+1 | Entrega final do trabalho.     |
-| 23/05/2022 --- 27/05/2022 | Provas de autoria.             |
+| 29/05/2022 23:59:59 UTC+1 | Entrega final do trabalho.     |
+| 30/05/2022 --- 03/06/2022 | Provas de autoria.             |
 
 ## Descrição
 
@@ -83,7 +81,7 @@ Os navios são colocados através da [instrução CN](#colocar-navios-cn).
 Considere a seguinte sequência para a colocação de navios, e a consequência no cenário do jogo (ver detalhe sobre formato na secção sobre [Instruções](#instruções)).
 
         CN Jogador1 P 1 A E
-        CN Jogador1 C 1 I S
+        CN Jogador1 C 2 I S
         CN Jogador1 F 3 B S
         CN Jogador1 F 10 H E
         CN Jogador1 S 3 F S
@@ -328,7 +326,7 @@ Saída com insucesso:
 
         Jogador não participa no jogo em curso.
 
-- QUando não existe navio colocado na posição indicada.
+- Quando não existe navio colocado na posição indicada.
 
         Não existe navio na posição.
 
@@ -345,9 +343,9 @@ Entrada:
 Saída com sucesso (apenas uma saída das seguintes):
 
         Tiro na água.
-        Tiro em navio Tipo.
         Navio Tipo afundado. Jogo terminado.
         Navio Tipo afundado.
+        Tiro em navio Tipo.
 
 Saída com insucesso:
 
@@ -391,42 +389,6 @@ Saída com insucesso:
 - Quando o jogo em curso ainda não tem o combate iniciado.
 
         Jogo em curso sem combate iniciado.
-
-### Gravar (G)
-
-Grava a lista de jogadores, resultados, e estado do jogo em curso (se existir) em ficheiro.
-
-Entrada:
-
-        G
-
-Saída com sucesso:
-
-        Jogo gravado.
-
-Saída com insucesso:
-
-- Quando ocorre um erro na gravação:
-
-        Ocorreu um erro na gravação.
-
-### Ler (L)
-
-Lê a lista de jogadores, resultados, e estado do jogo em curso (se existir) de ficheiro.
-
-Entrada:
-
-        L
-
-Saída com sucesso:
-
-        Jogo carregado.
-
-Saída com insucesso:
-
-- Quando ocorre um erro na leitura:
-
-        Ocorreu um erro no carregamento.
 
 ## Estrutura do projeto
 
@@ -524,8 +486,6 @@ A não comparência na prova de autoria implica a anulação da participação i
 
 O projeto deve ser implementado em C (C11, gcc versão 8.1, ou superior).
 
-A avaliação vai ser feita em GNU Linux, 
-
 Não podem ser utilizadas bibliotecas externas à distribuição padrão. No caso de dúvida, o corpo docente deve ser consultado.
 
 ## Grupo de trabalho
@@ -540,18 +500,16 @@ O projeto é avaliado com base em duas componentes: quantitativa (*A*), e qualit
 
 | Instrução | Peso |
 | --------- | :--: |
-| RJ        |  1   |
-| EJ        |  1   |
-| LJ        |  1   |
+| RJ        |  2   |
+| EJ        |  2   |
+| LJ        |  2   |
 | IJ        |  2   |
-| IC        |  1   |
-| D         |  1   |
-| SN        |  2   |
+| IC        |  2   |
+| D         |  2   |
+| CN        |  2   |
 | RN        |  2   |
-| T         |  3   |
+| T         |  2   |
 | V         |  2   |
-| G         |  2   |
-| L         |  2   |
 
 A avaliação qualitativa irá considerar que existem várias formas de resolver o problema descrito, mas exige-se a utilização dos instrumentos e métodos apresentados na unidade curricular, nomeadamente:
 

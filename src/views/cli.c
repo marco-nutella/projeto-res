@@ -33,6 +33,7 @@ void cli() {
             }
         } else if (strcmp(command, "LJ") == 0) {
             Player *players = get_player_array(game);
+            // TODO: Ordenar players.
             for (int i = 0; i < num_players(game); i++) {
                 printf("%s %d %d\n", players[i]->name, players[i]->games_played, players[i]->wins);
             }

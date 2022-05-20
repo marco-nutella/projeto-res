@@ -5,40 +5,17 @@
 #include <string.h>
 
 #include "cli.h"
-#include "list.h"
 
-typedef struct {
-    char name[80];
-    int games_played;
-    int wins;
-} _Player, *Player;
-
-bool equal_players(Player first, Player second) {
-    return strcmp(first->name, second->name) == 0;
-}
-
-void free_player(Player player) {
-    free(player);
-}
-
-typedef struct {
-    List players;
-} _Game, *Game;
-
-void replace_char(char* str, char char_to_replace, char replacement) {
-    for (size_t i = 0; i < strlen(str); i++) {
-        if (str[i] == char_to_replace) {
-            str[i] = replacement;
-        }
-    }
-}
+#include "../utils/str_utils.h"
+#include "../utils/list.h"
+#include "../models/player.h"
+#include "../models/game.h"
 
 void cli() {
     char* line = NULL;
     size_t n = 0;
 
-    Game game = malloc(sizeof(_Game));
-    game->players = list_create();
+    Game game = new_game();
 
     while (true) {
         getline(&line, &n, stdin);
@@ -50,6 +27,7 @@ void cli() {
         if (strcmp(command, "RJ") == 0) {
             char* name = strtok(NULL, " ");
             bool found = false;
+
             Player player = malloc(sizeof(_Player));
             strcpy(player->name, name);
             if (list_find(game->players, (bool (*)(void*, void*))equal_players, player) != -1) {
@@ -77,6 +55,5 @@ void cli() {
         }
     }
     free(line);
-    list_destroy(game->players, (void (*)(void*))free_player);  
-    free(game);
+    free_game(game);
 }

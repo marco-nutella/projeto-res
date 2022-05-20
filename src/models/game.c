@@ -20,3 +20,18 @@ bool player_exists(Game game, const char* name) {
     free_player(player);
     return found;
 }
+
+void add_player(Game game, const char* name) {
+    Player player = new_player(name);
+    list_insert_last(game->players, player);
+}
+
+Player* get_player_array(Game game) {
+    Player* pls = malloc(sizeof(Player) * list_size(game->players));
+    list_to_array(game->players, (void**)pls);
+    return pls;
+}
+
+int num_players(Game game) {
+    return list_size(game->players);
+}

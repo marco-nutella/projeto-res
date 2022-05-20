@@ -16,4 +16,10 @@ Game new_game();
 
 bool player_exists(Game game, const char* name);
 
+void add_player(Game game, const char* name);
+
+Player* get_player_array(Game game);
+
+int num_players(Game game);
+
 #endif

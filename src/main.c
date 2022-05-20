@@ -3,14 +3,12 @@
 #include <io.h>
 #endif
 
-// Alterar ficheiros incluídos
-#include <stdio.h>
+#include "views/cli.h"
 
 int main() {
 #ifdef _WIN32
     _setmode(1, _O_BINARY);
 #endif
-    // Alterar a partir desta linha.
-    printf("Template para projeto de Programação e Algoritmos.\n");
+    cli();
     return 0;
 }

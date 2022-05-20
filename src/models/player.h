@@ -7,6 +7,8 @@ typedef struct {
     int wins;
 } _Player, *Player;
 
+Player new_player(const char* name);
+
 bool equal_players(Player first, Player second);
 
 void free_player(Player player);

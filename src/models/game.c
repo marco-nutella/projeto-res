@@ -10,3 +10,13 @@ Game new_game() {
     game->players = list_create();
     return game;
 }
+
+bool player_exists(Game game, const char* name) {
+    Player player = new_player(name);
+    bool found = false;
+    if (list_find(game->players, (bool (*)(void*, void*))equal_players, player) != -1) {
+        found = true;
+    }
+    free_player(player);
+    return found;
+}

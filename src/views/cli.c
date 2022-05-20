@@ -26,23 +26,12 @@ void cli() {
         char* command = strtok(line, " ");
         if (strcmp(command, "RJ") == 0) {
             char* name = strtok(NULL, " ");
-            bool found = false;
 
-            Player player = malloc(sizeof(_Player));
-            strcpy(player->name, name);
-            if (list_find(game->players, (bool (*)(void*, void*))equal_players, player) != -1) {
-                found = true;
+            if(player_exists(game, name)) {
                 printf("Jogador existente.\n");
-            }
-            free(player);
-
-            if (!found) {
-                Player player = malloc(sizeof(_Player));
-                strcpy(player->name, name);
-                player->games_played = 0;
-                player->wins = 0;
+            } else {
+                Player player = new_player(name);
                 list_insert_last(game->players, player);
-
                 printf("Jogador registado com sucesso.\n");
             }
         } else if (strcmp(command, "LJ") == 0) {

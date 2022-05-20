@@ -14,4 +14,6 @@ void free_game(Game game);
 
 Game new_game();
 
+bool player_exists(Game game, const char* name);
+
 #endif

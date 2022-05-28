@@ -17,13 +17,16 @@ $(BIN)/player.o: $(SRC)/models/player.c
 $(BIN)/game.o: $(SRC)/models/game.c
 	$(CC) -c $(CFLAGS) $^ -o $@
 
+$(BIN)/sort.o: $(SRC)/utils/sort.c
+	$(CC) -c $(CFLAGS) $^ -o $@
+
 $(BIN)/singly_linked_list.o: $(SRC)/utils/singly_linked_list.c
 	$(CC) -c $(CFLAGS) $^ -o $@
 
 $(BIN)/str_utils.o: $(SRC)/utils/str_utils.c
 	$(CC) -c $(CFLAGS) $^ -o $@
 
-main: $(SRC)/main.c $(BIN)/cli.o $(BIN)/singly_linked_list.o $(BIN)/str_utils.o $(BIN)/player.o $(BIN)/game.o
+main: $(SRC)/main.c $(BIN)/cli.o $(BIN)/singly_linked_list.o $(BIN)/str_utils.o $(BIN)/player.o $(BIN)/game.o $(BIN)/sort.o
 	$(CC) $(CFLAGS) $^ -o $(BIN)/$@
 
 clean:

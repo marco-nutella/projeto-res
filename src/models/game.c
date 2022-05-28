@@ -8,6 +8,8 @@ void free_game(Game game) {
 Game new_game() {
     Game game = malloc(sizeof(_Game));
     game->players = list_create();
+    game->participants = list_create();
+    game->active = false;
     return game;
 }
 

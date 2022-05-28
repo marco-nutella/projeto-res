@@ -179,7 +179,10 @@ void* list_remove_last(List list) {
         while (node->next != list->tail) {
             node = node->next;
         }
-        list->tail = node;
+        Node last = node->next; // node.next será o tail original
+        node->next = NULL; // Acredito que isto esteja implícito no código de list_insert_first, no caso de uma lista vazia (head vai ser NULL, logo node->next (que aponta ao próximo membro) vai ser NULL)
+        list->tail = node; // Garantir que node vire o tail antes de apagarmos este
+        _destroy_node(last, NULL); // adeus :)
         list->size--;
     }
     return element;

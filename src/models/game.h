@@ -8,6 +8,8 @@
 
 typedef struct {
     List players;
+    List participants;
+    bool active;
 } _Game, *Game;
 
 void free_game(Game game);

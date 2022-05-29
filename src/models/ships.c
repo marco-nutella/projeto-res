@@ -63,39 +63,70 @@ Ship new_ship(Board board, char type, int xpos, int ypos, char dir) {
     Ship ship = malloc(sizeof(_Ship));
     ship->type = type;
     ship->remaining_parts = calc_remaining_parts(type);
-    add_to_board(board, xpos, ypos, ship);
-    list_insert_first(ship->positions, board->board[xpos][ypos]);
+    if (verify_pos(board, xpos, ypos) != 1) {
+        add_to_board(board, xpos, ypos, ship);
+        list_insert_first(ship->positions, board->board[xpos][ypos]);
+    } else {
+        printf("Posição irregular.\n");
+        free_ship(ship);
+        return ship; 
+    }
     if(ship->remaining_parts > 1) {
         if(dir_validity_check(ship->remaining_parts, xpos, ypos, dir) == 1) {
             printf("Posição irregular.\n");
+            free_ship(ship);
             return ship; 
         }
         switch(dir) {
         case 'N':
             for (int i = 1; i < ship->remaining_parts; i++) {
-                add_to_board(board, xpos, ypos+i, ship);
-                list_insert_last(ship->positions, board->board[xpos][ypos+i]);
+                if (verify_pos(board, xpos, ypos) != 1) {
+                    add_to_board(board, xpos, ypos+i, ship);
+                    list_insert_last(ship->positions, board->board[xpos][ypos+i]);
+                } else {
+                    printf("Posição irregular.\n");
+                    free_ship(ship);
+                    return ship; 
+                }
             }
             break;
 
         case 'S':
             for (int i = 0; i < ship->remaining_parts-1; i++) {
-                add_to_board(board, xpos, ypos-i, ship);
-                list_insert_last(ship->positions, board->board[xpos][ypos-i]);
+                if (verify_pos(board, xpos, ypos) != 1) {
+                    add_to_board(board, xpos, ypos-i, ship);
+                    list_insert_last(ship->positions, board->board[xpos][ypos-i]);
+                } else {
+                    printf("Posição irregular.\n");
+                    free_ship(ship);
+                    return ship; 
+                }
             }
             break;
 
         case 'E':
             for (int i = 0; i < ship->remaining_parts-1; i++) {
-                add_to_board(board, xpos+i, ypos, ship);
-                list_insert_last(ship->positions, board->board[xpos+i][ypos]);
+                if (verify_pos(board, xpos, ypos) != 1) {
+                    add_to_board(board, xpos+i, ypos, ship);
+                    list_insert_last(ship->positions, board->board[xpos+i][ypos]);
+                } else {
+                    printf("Posição irregular.\n");
+                    free_ship(ship);
+                    return ship; 
+                }
             }
             break;
 
         case 'O':
             for (int i = 0; i < ship->remaining_parts-1; i++) {
-                add_to_board(board, xpos-i, ypos, ship);
-                list_insert_last(ship->positions, board->board[xpos-i][ypos]);
+                if (verify_pos(board, xpos, ypos) != 1) {
+                    add_to_board(board, xpos-i, ypos, ship);
+                    list_insert_last(ship->positions, board->board[xpos-i][ypos]);
+                } else {
+                    printf("Posição irregular.\n");
+                    free_ship(ship);
+                    return ship; 
+                }
             }
             break;
         }
@@ -106,3 +137,19 @@ Ship new_ship(Board board, char type, int xpos, int ypos, char dir) {
 /*void remove_ship(Player player) {
 
 }*/
+
+/*char* type_translator(char* type) {
+    
+}*/
+
+int get_unplaced_ships(Player player) {
+    int holder = 0;
+    for (int i = 0; i < 5; i++) {
+        holder = holder + player->remaining_ships[i];
+    }
+    return holder;
+}
+
+void free_ship(Ship ship) {
+    free(ship);
+}

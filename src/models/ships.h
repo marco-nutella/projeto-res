@@ -22,6 +22,8 @@ Ship new_ship(Board board, char type, int xpos, int ypos, char dir);
 
 void remove_ship(Player player);
 
+int get_unplaced_ships(Player player);
+
 char* type_translator(char type);
 
 char* hit_function(Ship ship);

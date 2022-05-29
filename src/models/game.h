@@ -19,12 +19,18 @@ Game new_game();
 
 bool player_exists(Game game, const char* name);
 
+bool participant_exists(Game game, const char* name);
+
 void add_player(Game game, const char* name);
 
 void add_to_combat(Game game, const char* name1, const char* name2);
 
 Player* get_player_array(Game game);
 
+Player* get_participant_array(Game game);
+
 int num_players(Game game);
+
+void end_game(Game game);
 
 #endif

@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../utils/list.h"
 #include "board.h"
 
 typedef struct {

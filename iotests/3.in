@@ -1,0 +1,112 @@
+LJ
+RJ Bob
+RJ Alice
+RJ Mark
+LJ
+IJ Mark Alice
+D Alice Mark
+LJ
+IJ Mark Bob
+D Anna
+D Bob
+LJ
+IJ Bob Alice
+RN Bob 1 A
+EJ Bob
+CN Bob P 1 C O
+CN Bob P 4 B S
+CN Bob C 4 C E
+CN Bob C 4 F S
+CN Bob F 10 C O
+CN Bob F 2 A E
+CN Bob P 1 E E
+RN Bob 6 B
+CN Bob P 4 B S
+CN Bob S 4 J N
+CN Bob S 6 J S
+CN Bob S 2 F N
+CN Bob L 4 D N
+CN Bob L 4 H
+CN Bob L 7 D
+CN Bob L 7 H
+IC
+CN Alice P 12 L E
+CN Alice P 1 E O
+CN Alice C 4 C S
+CN Alice F 4 H E
+CN Alice F 6 J O
+CN Alice S 8 I E
+CN Alice S 8 G O
+CN Alice S 10 C N
+CN Alice L 3 J
+CN Alice L 1 J
+CN Alice L 10 J
+CN Alice L 10 A
+CN Alice L 10 H
+CN Alice L 10 D
+RN Alice 10 H
+IC
+CN Alice L 10 H
+T Alice 1 A
+IC
+T Bob 12 L
+T Alice 1 A
+T Mark 2 B
+T Bob 1 A
+T Alice 1 J
+T Bob 1 E
+T Alice 4 H
+T Bob 1 C
+T Alice 10 J
+T Bob 1 B
+T Alice 10 I
+T Bob 1 C
+T Alice 9 J
+T Bob 1 D
+T Alice 8 B
+T Bob 1 A
+V
+T Alice 4 B
+T Bob 1 J
+T Alice 5 A
+T Bob 4 I
+T Alice 5 B
+T Bob 4 J
+T Alice 5 D
+T Bob 4 H
+T Alice 2 G
+T Bob 10 A
+T Alice 2 H
+T Bob 10 H
+T Alice 4 B
+T Bob 1 J
+T Alice 4 C
+T Bob 6 C
+T Alice 5 E
+T Bob 7 C
+T Alice 3 F
+T Bob 4 C
+T Alice 3 C
+T Bob 5 C
+V
+T Alice 5 F
+T Bob 8 G
+T Alice 5 J
+T Bob 8 J
+T Alice 3 B
+T Bob 9 C
+T Alice 7 F
+T Bob 8 F
+T Alice 7 E
+T Bob 8 I
+T Alice 2 A
+T Bob 10 C
+T Alice 2 C
+T Bob 6 I
+T Alice 7 D
+T Bob 6 H
+T Alice 9 D
+T Bob 8 J
+T Alice 6 G
+T Bob 10 J
+V

@@ -8,8 +8,10 @@
 
 #include "cli.h"
 
+#include "../models/board.h"
 #include "../models/game.h"
 #include "../models/player.h"
+#include "../models/ships.h"
 #include "../utils/list.h"
 #include "../utils/sort.h"
 #include "../utils/str_utils.h"
@@ -90,7 +92,7 @@ void cli() {
                 printf("Não existe jogo em curso.\n");
             } else {
                 Player jog1 = list_get(game->players, 0), jog2 = list_get(game->players, 1);
-                int jog1_ncolocados = get_unplaced_ships(jog1), jog2_ncolocados = get_unplaced_ships(jog2);
+                int jog1_ncolocados = get_remaining_ships(jog1), jog2_ncolocados = get_remaining_ships(jog2);
                 if (jog1_ncolocados != 0 || jog2_ncolocados != 0) {
                     printf("Navios não colocados.\n");
                 } else {
@@ -129,10 +131,10 @@ void cli() {
 
         } else if (strcmp(command, "CN") == 0) {
             char* jog = strtok(NULL, " ");
-            char* tipo = strtok(NULL, " ");
-            char* linha = strtok(NULL, " ");
-            char* col = strtok(NULL, " ");
-            char* orient = strtok(NULL, " ");
+            char* tipo_i = strtok(NULL, " ");
+            char* linha_i = strtok(NULL, " ");
+            char* col_i = strtok(NULL, " ");
+            char* orient_i = strtok(NULL, " ");
             if (!game->active) {
                 printf("Não existe jogo em curso.\n");
             } else if (participant_exists(game, jog) != true) {
@@ -140,13 +142,59 @@ void cli() {
             } else if (game->combat) {
                 printf("Combate iniciado.\n");
             } else {
-                
+                Player player = new_player(jog);
+                int player_position = list_find(game->participants, (bool (*)(void*, void*))equal_players, player);
+                free(player);
+                player = list_get(game->players, player_position);
+                char tipo = tipo_i[0];
+                int linha = linha_i[0]-NASCII_OFFSET-1;
+                int col = col_i[0]-LASCII_OFFSET;
+                char orient = 'a';
+                if (orient_i != NULL) { // Evitar um Segmentation Fault
+                    orient = orient_i[0]; 
+                }
+                if (player->remaining_ships[type_to_number(tipo)] == 0) {
+                    if (get_remaining_ships(player) == 0) {
+                        printf("Não é possível colocar navios.\n");
+                    } else {
+                        printf("Não tem mais navios dessa tipologia disponíveis.\n");
+                    }
+                } else {
+                    if (orient != 'a') {
+                        new_ship(player->board, tipo, linha, col, orient);
+                    } else {
+                        new_ship(player->board, tipo, linha, col, 'N');
+                    }
+                }
             }
 
         } else if (strcmp(command, "RN") == 0) {
+            /*char* jog = strtok(NULL, " ");
+            char* tipo_i = strtok(NULL, " ");
+            char* linha_i = strtok(NULL, " ");
+            if (!game->active) {
+                printf("Não existe jogo em curso.\n");
+            } else if (participant_exists(game, jog) != true) {
+                printf("Jogador não participa no jogo em curso.\n");
+            } else if (game->combat) {
+                printf("Combate iniciado.\n");
+            } else {
+
+            }*/
 
         } else if (strcmp(command, "T") == 0) {
+            /*char* jog = strtok(NULL, " ");
+            char* tipo_i = strtok(NULL, " ");
+            char* linha_i = strtok(NULL, " ");
+            if (!game->active) {
+                printf("Não existe jogo em curso.\n");
+            } else if (!game->combat) {
+                printf("Jogo em curso sem combate iniciado.\n");
+            } else if (participant_exists(game, jog) != true) {
+                printf("Jogador não participa no jogo em curso.\n");
+            } else {
 
+            }*/
         } else if (strcmp(command, "V") == 0) {
             if (!game->active) {
                 printf("Não existe jogo em curso.\n");

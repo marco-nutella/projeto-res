@@ -20,13 +20,13 @@ int verify_pos(Board board, int xpos, int ypos);
 
 Ship new_ship(Board board, char type, int xpos, int ypos, char dir);
 
-void remove_ship(Player player);
+void remove_ship_part(Ship ship, int xpos, int ypos);
 
-int get_unplaced_ships(Player player);
+int get_remaining_ships(Player player);
 
-char* type_translator(char type);
+int type_to_number(char type);
 
-char* hit_function(Ship ship);
+Ship hit_function(Ship ship);
 
 void free_ship(Ship ship);
 

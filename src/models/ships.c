@@ -131,24 +131,39 @@ Ship new_ship(Board board, char type, int xpos, int ypos, char dir) {
             break;
         }
     }
+    printf("Navio colocado com sucesso.\n");
     return ship;
 }
 
-/*void remove_ship(Player player) {
-
+/*void remove_ship_part(Ship ship, int xpos, int ypos) {
+    ship->remaining_parts--;
 }*/
 
-/*char* type_translator(char* type) {
-    
-}*/
-
-int get_unplaced_ships(Player player) {
+int get_remaining_ships(Player player) {
     int holder = 0;
     for (int i = 0; i < 5; i++) {
         holder = holder + player->remaining_ships[i];
     }
     return holder;
 }
+
+int type_to_number(char type) {
+    switch(type) {
+    case 'L':
+        return 0;
+    case 'S':
+        return 1;
+    case 'F':
+        return 2;
+    case 'C':
+        return 3;
+    case 'P':
+        return 4;
+    }
+    return -1; // Erro, nunca vai chegar aqui mas vai calar os erros do Makefile :)
+}
+
+/*Ship hit_function(Ship ship) {}*/
 
 void free_ship(Ship ship) {
     free(ship);

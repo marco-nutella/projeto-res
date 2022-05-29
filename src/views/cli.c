@@ -37,7 +37,7 @@ void cli() {
 
         } else if (strcmp(command, "LJ") == 0) {
             Player* players = get_player_array(game);
-            selection_sort(players, num_players(game));
+            selection_sort(players, num_players(game)); //TODO: Não funciona, investigar
             for (int i = 0; i < num_players(game); i++) {
                 printf("%s %d %d\n", players[i]->name, players[i]->games_played, players[i]->wins);
             }
@@ -62,7 +62,7 @@ void cli() {
         } else if (strcmp(command, "IJ") == 0) {
             char* jog1 = strtok(NULL, " ");
             char* jog2 = strtok(NULL, " ");
-            char* input[] = {jog1, jog2};
+            char* input[] = {jog1, jog2};   
             for (int i = 0; i  < 2; i++) {
                 Player player = new_player(input[i]);
                 int existe = list_find(game->players, (bool (*)(void*, void*))equal_players, player);
@@ -75,6 +75,8 @@ void cli() {
             if (game->active) {
                 printf("Existe um jogo em curso.\n");
             }
+            game->active = true;
+
             printf("Jogo iniciado entre %s e %s.\n", jog1, jog2);
 
         } else if (strcmp(command, "IC") == 0) {
